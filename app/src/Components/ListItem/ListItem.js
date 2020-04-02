@@ -8,15 +8,15 @@ import {
 	ListIconStyled,
 } from "./ListItem.styled";
 
-const ListItem = ({ inputText }) => {
+const ListItem = ({ defaultText, onDelete }) => {
   return (
     <ListItemStyled>
     <ListJointStyled>
       <ListJointTextStyled>And</ListJointTextStyled>
     </ListJointStyled>
     <ListInputWrapperStyled>
-      <ListInputStyled type="text" placeholder={inputText} />
-      <ListIconStyled isRemoveIcon />
+      <ListInputStyled type="text" defaultValue={defaultText} />
+      <ListIconStyled isRemoveIcon callback={onDelete} />
     </ListInputWrapperStyled>
   </ListItemStyled>
   );

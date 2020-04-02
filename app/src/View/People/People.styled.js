@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import Icon from "../../Components/Icon";
 
 export const SectionWrapperStyled = styled.div`
   display: flex;
@@ -41,8 +40,4 @@ export const ListTiteStyled = styled.h2`
   box-shadow: 0 7px 19px 0 rgba(125, 118, 246, 0.31);
   padding: 21px 105px;
   margin-bottom: 73px;
-`;
-
-export const ListIconMainStyled = styled(Icon)`
-  ${({ isAddMainIcon }) => isAddMainIcon && `margin : 58px 12px 12px 103px;`}
 `;

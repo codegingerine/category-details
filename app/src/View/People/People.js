@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import ListItem from '../../Components/ListItem';
+import List from '../../Components/List';
 import {
   SectionWrapperStyled,
   SectionTiteStyled,
 	ListWrapperStyled,
 	ListTiteStyled,
-	ListIconMainStyled,
 } from "./People.styled";
 
 class People extends Component {
@@ -15,11 +14,7 @@ class People extends Component {
         <SectionTiteStyled>Zadanie rekrutacyjne</SectionTiteStyled>
         <ListWrapperStyled>
           <ListTiteStyled>People</ListTiteStyled>
-
-					<ListItem inputText="Age 40+" />
-					<ListItem inputText="Income yearly 45k USD+" />
-          <ListIconMainStyled isAddMainIcon />
-
+          <List />
         </ListWrapperStyled>
       </SectionWrapperStyled>
     );

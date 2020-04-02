@@ -52,7 +52,7 @@ export const ListItemStyled = styled.div`
     margin-bottom: 40px;
   }
 
-  &:first-of-type {
+  &:first-child {
     ${ListJointStyled} {
       &:before {
         height: calc(100% + 40px + 73px);
@@ -61,7 +61,7 @@ export const ListItemStyled = styled.div`
     }
   }
 
-  &:last-child {
+  &:nth-last-child {
     ${ListJointStyled} {
       &:before {
         height: calc(100% + 40px + 12px);
@@ -108,7 +108,7 @@ export const ListInputStyled = styled.input`
 `;
 
 export const ListIconStyled = styled(Icon)`
-  ${({ isRemoveIcon, isAddMainIcon }) => css`
+  ${({ isRemoveIcon }) => css`
     ${isRemoveIcon &&
       `
       position: absolute;
@@ -116,7 +116,6 @@ export const ListIconStyled = styled(Icon)`
       right: 34px;
       `
     }
-    ${isAddMainIcon && `margin : 58px 12px 12px 103px;`}
   `}
 `;
 
