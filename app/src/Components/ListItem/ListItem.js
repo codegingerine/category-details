@@ -1,25 +1,30 @@
-import React from 'react';
+import React from "react";
 import {
   ListItemStyled,
   ListJointStyled,
   ListJointTextStyled,
-  ListInputWrapperStyled,
-  ListInputStyled,
-	ListIconStyled,
+  InputItemStyled,
+  ListIconStyled
 } from "./ListItem.styled";
 
-const ListItem = ({ defaultText, onDelete }) => {
-  return (
-    <ListItemStyled>
-    <ListJointStyled>
-      <ListJointTextStyled>And</ListJointTextStyled>
-    </ListJointStyled>
-    <ListInputWrapperStyled>
-      <ListInputStyled type="text" defaultValue={defaultText} />
-      <ListIconStyled isRemoveIcon callback={onDelete} />
-    </ListInputWrapperStyled>
-  </ListItemStyled>
-  );
-};
+const ListItem = React.forwardRef(
+  ({ value, placeholder, onDelete, readOnly }, ref) => {
+    return (
+      <ListItemStyled>
+        <ListJointStyled>
+          <ListJointTextStyled>And</ListJointTextStyled>
+        </ListJointStyled>
+        <InputItemStyled
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          ref={ref}
+          readOnly={readOnly}
+          onDelete={onDelete}
+        />
+      </ListItemStyled>
+    );
+  }
+);
 
 export default ListItem;

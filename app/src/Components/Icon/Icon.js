@@ -7,6 +7,7 @@ const Icon = ({
   isAddIcon,
   isRemoveIcon,
   isAddMainIcon,
+  isCloseIcon,
   callback
 }) => {
   return (
@@ -15,10 +16,11 @@ const Icon = ({
       isAddIcon={isAddIcon}
       isRemoveIcon={isRemoveIcon}
       isAddMainIcon={isAddMainIcon}
+      isCloseIcon={isCloseIcon}
       onClick={callback}
     >
       <IconInnerStyled>
-        {isAddIcon || isAddMainIcon ? `\u002B` : `\u2212`}
+        {isRemoveIcon ? `\u2212` : isCloseIcon ? `\u00D7` : `\u002B`}
       </IconInnerStyled>
     </IconStyled>
   );
@@ -29,6 +31,7 @@ Icon.propTypes = {
   isAddIcon: PropTypes.bool,
   isRemoveIcon: PropTypes.bool,
   isAddMainIcon: PropTypes.bool,
+  isCloseIcon: PropTypes.bool,
   callback: PropTypes.func
 };
 

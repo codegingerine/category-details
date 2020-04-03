@@ -41,7 +41,7 @@ export const IconStyled = styled.span`
   border-radius: 50%;
   cursor: pointer;
 
-  ${({ isRemoveIcon, isAddIcon, isAddMainIcon }) => css`
+  ${({ isRemoveIcon, isAddIcon, isAddMainIcon, isCloseIcon }) => css`
     ${isRemoveIcon &&
       `
       background: linear-gradient(180deg, #F978A2 0%, #F1435B 100%);
@@ -85,6 +85,12 @@ export const IconStyled = styled.span`
         font-weight: 600;
         ${AddIconInnerMix}
       }
+    `}
+
+    ${isCloseIcon &&
+      `
+      background: linear-gradient(180deg, #F978A2 0%, #F1435B 100%);
+      box-shadow: 0 6px 12px 0 #FFC0C9;
     `}
   `}
 `;
