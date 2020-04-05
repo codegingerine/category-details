@@ -1,17 +1,16 @@
 import styled, { css } from "styled-components";
 
 export const IconInnerStyled = styled.span`
+  display: inline-block;
   font-family: "Josefin Sans", sans-serif;
   color: #ffffff;
-  font-size: 20px;
-  line-height: 20px;
-  font-weight: 900;
+  font-size: 30px;
+  line-height: 1px;
+  font-weight: 700;
   z-index: 2;
 `;
 
 const AddIconMix = css`
-  text-shadow: 0 2px 4px #12C8B;
-
   &:before {
     content: "";
     position: absolute;
@@ -55,6 +54,8 @@ export const IconStyled = styled.span`
       ${AddIconMix}
 
       ${IconInnerStyled} {
+        font-size: 36px;
+        font-weight: 500;
         ${AddIconInnerMix}
       }
     `}
@@ -80,9 +81,8 @@ export const IconStyled = styled.span`
       }
 
       ${IconInnerStyled} {
-        font-size: 50px;
-        line-height: 50px;
-        font-weight: 600;
+        font-size: 65px;
+        font-weight: 500;
         ${AddIconInnerMix}
       }
     `}
@@ -91,6 +91,10 @@ export const IconStyled = styled.span`
       `
       background: linear-gradient(180deg, #F978A2 0%, #F1435B 100%);
       box-shadow: 0 6px 12px 0 #FFC0C9;
+      ${IconInnerStyled} {
+        font-size: 26px;
+        font-weight: 400;
+      }
     `}
   `}
 `;

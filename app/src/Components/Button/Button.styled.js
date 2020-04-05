@@ -7,13 +7,12 @@ export const ButtonInnerStyled = styled.span`
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  text-shadow: 0 2px 4px #12C8B;
+  text-shadow: 0 2px 4px #12c8bf;
   z-index: 2;
 `;
 
 export const ButtonStyled = styled.button`
   position: relative;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.23);
   border-radius: 7px;
   background: linear-gradient(0deg, #27e7e7 0%, #f4ff51 100%);
   box-shadow: 0 12px 12px 0 rgba(61, 234, 214, 0.3);

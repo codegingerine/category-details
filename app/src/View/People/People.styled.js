@@ -10,8 +10,8 @@ export const SectionWrapperStyled = styled.div`
 `;
 
 export const SectionTiteStyled = styled.h1`
-  font-size: 56px;
-  font-weight: 900;
+  font-size: 42px;
+  font-weight: 700;
   letter-spacing: 0.99px;
   line-height: 57px;
   text-align: center;
@@ -23,7 +23,7 @@ export const ListWrapperStyled = styled.div`
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow: 0 0 37px 0 rgba(225, 230, 255, 0.54);
-  padding: 75px 72px;
+  padding: 77px 74px;
   margin: 75px 0 98px;
 `;
 
