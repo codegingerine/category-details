@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { media } from "./../../../utils/media";
 import Icon from "../Icon";
 import Input from "../Input";
 
@@ -35,7 +36,11 @@ const ListJoinMix = css`
 
 export const ListJointMainStyled = styled.div`
   ${ListJoinMix}
+  display: none;
   margin-right: 76px;
+  ${media.md`
+    display: flex;
+  `}
 
   &:before {
     height: calc(100% + 40px);
@@ -45,7 +50,11 @@ export const ListJointMainStyled = styled.div`
 
 export const ListJointDetailsStyled = styled.div`
   ${ListJoinMix}
+  display: none;
   margin-right: 28px;
+  ${media.sm`
+    display: flex;
+  `}
 
   &:before {
     height: calc(100% + 9px);
@@ -71,7 +80,15 @@ export const ListItemStyled = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding-left: 85px;
+  max-width: 426px;
+  
+  ${media.sm`
+    max-width: none;
+  `}
+
+  ${media.md`
+    padding-left: 85px;
+  `}
 
   &:not(:last-of-type) {
     margin-bottom: 40px;
@@ -90,8 +107,12 @@ export const InputWrapperStyled = styled.div`
   flex-grow: 1;
   position: relative;
   display: block;
-  max-width: 426px;
+  width: 100%;
   box-shadow: 0 7px 23px 0 rgba(186, 184, 230, 0.31);
+
+  ${media.sm`
+    max-width: 426px;
+  `}
 
   &:before {
     content: "";
@@ -106,7 +127,12 @@ export const InputWrapperStyled = styled.div`
   }
 `;
 
-export const InputStyled = styled(Input)``;
+export const InputStyled = styled(Input)`
+  width: calc(100% - 55px);
+  ${media.sm`
+    width: 100%;
+  `}
+`;
 
 export const ListIconStyled = styled(Icon)`
   position: absolute;
@@ -125,11 +151,17 @@ export const ListItemDetStyled = styled(ListItemStyled)`
 
   ${InputStyled} {
     height: 51px;
-    max-width: 293px;
+    width: calc(100% - 15px);
+    max-width: 260px;
     padding: 10px 20px;
     border: 1px solid rgba(75, 89, 123, 0.3);
     border-radius: 4px;
     margin-left: 38px;
+
+    ${media.sm`
+      width: 100%;
+      max-width: 293px
+    `}
   }
 `;
 
@@ -148,7 +180,11 @@ export const InputWrapperDetStyled = styled.div`
 
   ${InputStyled} {
     margin-left: 0;
-    max-width: 280px;
+    max-width: 260px;
+
+    ${media.sm`
+      max-width: 280px
+    `}
   }
 
   ${ListIconDetStyled} {

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { media } from "./../../../utils/media";
 
 export const SectionWrapperStyled = styled.div`
   display: flex;
@@ -23,8 +24,12 @@ export const ListWrapperStyled = styled.div`
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow: 0 0 37px 0 rgba(225, 230, 255, 0.54);
-  padding: 77px 74px;
+  padding: 30px 15px;
   margin: 75px 0 98px;
+
+  ${media.sm`
+    padding: 77px 74px;
+  `}
 `;
 
 export const ListTiteStyled = styled.h2`

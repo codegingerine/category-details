@@ -1,23 +1,33 @@
 import styled from "styled-components";
+import { media } from "./../../../utils/media";
 import Button from "../Button";
 import Input from "../Input";
 import Icon from "../Icon";
 
 export const ModalStyled = styled.div`
   position: absolute;
-  width: 438px;
-  bottom: -60px;
-  right: 0px;
+  width: 100%;
+  max-width: 414px;
+  bottom: -24px;
+  left: 12px;
   background: #f5f5f5;
   border-radius: 5px;
   border: 1px solid rgba(186, 184, 230, 0.31);
   box-shadow: 0 7px 23px 0 rgba(186, 184, 230, 0.31);
   padding: 50px;
   z-index: 10;
+
+  ${media.md`
+    width: 438px;
+    max-width: none;
+    left: auto;
+    right: 0;
+    bottom: -60px;
+  `}
 `;
 
 export const ModalFormStyled = styled.form`
-  width: 100%;
+  
   &:not(:last-child) {
     margin-bottom: 20px;
   }
