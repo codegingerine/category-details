@@ -1,11 +1,11 @@
 import React from "react";
-import { HeaderStyled, LogoWrapperStyled } from './Header.styled';
+import { HeaderStyled, LogoWrapperStyled, NameWrapperStyled, NameStyled } from './Header.styled';
 
-const Header = ({ className,logoItem }) => {
+const Header = ({ className,logoItem, name = 'logo' }) => {
   return (
     <HeaderStyled>
       <LogoWrapperStyled className={className} LogoItem={logoItem}>
-        {logoItem}
+        {logoItem ? logoItem : <NameWrapperStyled><NameStyled>{name}</NameStyled></NameWrapperStyled>}
       </LogoWrapperStyled>
     </HeaderStyled>
   );

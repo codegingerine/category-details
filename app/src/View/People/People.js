@@ -10,7 +10,7 @@ import {
 const People = () => {
   return (
     <SectionWrapperStyled>
-      <SectionTiteStyled>Zadanie rekrutacyjne</SectionTiteStyled>
+      <SectionTiteStyled>Category listing</SectionTiteStyled>
       <ListWrapperStyled>
         <ListTiteStyled>People</ListTiteStyled>
         <List />
