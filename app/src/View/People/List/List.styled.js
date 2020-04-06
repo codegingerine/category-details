@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Icon from "../../Components/Icon";
+import Icon from "./../../../Components/Icon";
 
 export const ListStyled = styled.div`
   position: relative;

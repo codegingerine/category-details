@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ListItem from "../ListItem";
-import { ListItemDetails } from "../ListItem/ListItemDetails";
-import Modal from "../Modal/ModalMain";
-import ModalDetails from "../Modal/ModalDetails";
+import ListItem from "./../../../Components/ListItem";
+import { ListItemDetails } from "./../../../Components/ListItem/ListItemDetails";
+import Modal from "./../../../Components/Modal/ModalMain";
+import ModalDetails from "./../../../Components/Modal/ModalDetails";
 import { ListStyled, ListIconMainStyled, ListIconStyled } from "./List.styled";
 
 class List extends Component {

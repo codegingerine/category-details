@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import List from "../../Components/List";
+import React from "react";
+import List from "./List";
 import {
   SectionWrapperStyled,
   SectionTiteStyled,
