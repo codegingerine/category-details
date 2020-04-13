@@ -1,31 +1,32 @@
 import React, { Component } from "react";
-import ListItem from "./../../../Components/ListItem";
 import { ListItemDetails } from "./../../../Components/ListItem/ListItemDetails";
 import Modal from "./../../../Components/Modal/ModalMain";
 import ModalDetails from "./../../../Components/Modal/ModalDetails";
-import { ListStyled, ListIconMainStyled, ListIconStyled } from "./List.styled";
+import { ListStyled, ListIconMainStyled, ListIconStyled, ListItemStyled } from "./List.styled";
+
+const initialStateListItems = [
+  { id: "default-item-1", value: "Age 40+" },
+  {
+    id: "default-item-2",
+    value: "Ethnicity",
+    itemType: "detailed",
+    details: [
+      {
+        id: "det-item-1",
+        detValue: "Black"
+      },
+      {
+        id: "det-item-2",
+        detValue: "Hispanic"
+      }
+    ]
+  },
+  { id: "default-item-3", value: "Income yearly 45k USD+" }
+];
 
 class List extends Component {
   state = {
-    listItems: [
-      { id: "default-item-1", value: "Age 40+" },
-      {
-        id: "default-item-2",
-        value: "Ethnicity",
-        itemType: "detailed",
-        details: [
-          {
-            id: "det-item-1",
-            detValue: "Black"
-          },
-          {
-            id: "det-item-2",
-            detValue: "Hispanic"
-          }
-        ]
-      },
-      { id: "default-item-3", value: "Income yearly 45k USD+" }
-    ],
+    listItems: [...initialStateListItems],
     show: false,
     showDetails: false
   };
@@ -81,7 +82,7 @@ class List extends Component {
     return (
       <ListStyled>
         {listItems.map((item, index) => (
-          <ListItem
+          <ListItemStyled
             key={item.id}
             value={item.value}
             onDelete={() => this.handleRemoveItem(index)}
@@ -104,7 +105,7 @@ class List extends Component {
                 onClose={this.handleCloseDetailsModal}
               />
             )}
-          </ListItem>
+          </ListItemStyled>
         ))}
         <ListIconMainStyled isAddMainIcon callback={this.handleShowModal} />
         {show && (

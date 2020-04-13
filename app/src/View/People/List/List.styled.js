@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { media } from "./../../../../utils/media";
+import ListItem from "./../../../Components/ListItem";
 import Icon from "./../../../Components/Icon";
 
 export const ListStyled = styled.div`
@@ -19,4 +20,20 @@ export const ListIconStyled = styled(Icon)`
   ${media.sm`
     margin-left: 30px;
   `}
+`;
+
+const animItemOnShow = keyframes`
+  from {
+    opacity: 0;
+    top: 15px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+`;
+
+export const ListItemStyled = styled(ListItem)`
+  position: relative;
+  animation: ${animItemOnShow} .5s ease;
 `;

@@ -1,8 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { media } from "./../../../utils/media";
 import Button from "../Button";
 import Input from "../Input";
 import Icon from "../Icon";
+
+const animModalOnShow = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const ModalStyled = styled.div`
   position: absolute;
@@ -15,6 +24,7 @@ export const ModalStyled = styled.div`
   border: 1px solid rgba(186, 184, 230, 0.31);
   box-shadow: 0 7px 23px 0 rgba(186, 184, 230, 0.31);
   padding: 50px;
+  animation: ${animModalOnShow} .5s ease;
   z-index: 10;
 
   ${media.md`

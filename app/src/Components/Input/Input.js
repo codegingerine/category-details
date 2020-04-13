@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { ListInputStyled } from "./Input.styled";
 
 const Input = React.forwardRef(
-  ({ className, placeholder, value, readOnly }, ref) => {
+  ({ className, placeholder, value, readOnly, required, maxLength }, ref) => {
     return (
       <ListInputStyled
         className={className}
@@ -11,7 +11,9 @@ const Input = React.forwardRef(
         placeholder={placeholder}
         value={value}
         readOnly={readOnly}
+        required={required}
         ref={ref}
+        maxLength={maxLength}
       />
     );
   }
@@ -21,7 +23,9 @@ Input.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+  required: PropTypes.bool,
+  maxLength: PropTypes.number,
 };
 
 export default Input;

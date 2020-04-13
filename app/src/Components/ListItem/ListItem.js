@@ -13,11 +13,11 @@ import {
 } from "./ListItem.styled";
 
 const ListItem = React.forwardRef(
-  ({ value, onDelete, readOnly, itemType = "single", children }, ref) => {
+  ({ className, value, onDelete, readOnly, itemType = "single", children }, ref) => {
     return (
       <React.Fragment>
         {itemType === "single" && (
-          <ListItemStyled itemType={itemType}>
+          <ListItemStyled itemType={itemType} className={className}>
             <ListJointMainStyled>
               <ListJointTextStyled>And</ListJointTextStyled>
             </ListJointMainStyled>
@@ -33,7 +33,7 @@ const ListItem = React.forwardRef(
           </ListItemStyled>
         )}
         {itemType === "detailed" && (
-          <ListItemDetStyled itemType={itemType}>
+          <ListItemDetStyled itemType={itemType} className={className}>
             <ListJointMainStyled>
               <ListJointTextStyled>And</ListJointTextStyled>
             </ListJointMainStyled>
@@ -59,6 +59,7 @@ const ListItem = React.forwardRef(
 );
 
 ListItem.propTypes = {
+  className: PropTypes.string,
   value: PropTypes.string,
   onDelete: PropTypes.func,
   readOnly: PropTypes.bool,

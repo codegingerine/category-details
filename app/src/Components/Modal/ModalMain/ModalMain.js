@@ -41,26 +41,30 @@ class ModalMain extends Component {
     const { onClose } = this.props;
     return (
       <ModalStyled>
-        <ModalFormStyled>
+        <ModalFormStyled onSubmit={this.handleSubmitSingle}>
           <ModalTitleStyled>Add a single item</ModalTitleStyled>
           <ModalInputStyled
             placeholder="Fill in item name"
             ref={this.inputValue}
+            required
+            maxLength={30}
           />
           <ModalButtonStyled
+            type="submit"
             buttonText="Add item"
-            onClick={this.handleSubmitSingle}
           />
         </ModalFormStyled>
-        <ModalFormStyled>
+        <ModalFormStyled onSubmit={this.handleSubmitDetailed}>
           <ModalTitleStyled>Add a detailed item</ModalTitleStyled>
           <ModalInputStyled
             placeholder="Fill in item name"
             ref={this.inputDetValue}
+            required
+            maxLength={30}
           />
           <ModalButtonStyled
+            type="submit"
             buttonText="Add item"
-            onClick={this.handleSubmitDetailed}
           />
         </ModalFormStyled>
         <ModalIconStyled isCloseIcon callback={onClose} />

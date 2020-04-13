@@ -29,15 +29,16 @@ class ModalDetails extends Component {
     const { onClose } = this.props;
     return (
       <ModalStyled>
-        <ModalFormStyled>
+        <ModalFormStyled onSubmit={this.handleSubmit}>
           <ModalTitleStyled>Add a detail box</ModalTitleStyled>
           <ModalInputStyled
             placeholder="Fill in the detail name"
             ref={this.inputDetValue}
+            required
+            maxLength={30}
           />
           <ModalButtonStyled
             buttonText="Add detail"
-            onClick={this.handleSubmit}
           />
         </ModalFormStyled>
         <ModalIconStyled isCloseIcon callback={onClose} />
