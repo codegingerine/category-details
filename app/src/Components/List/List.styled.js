@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
-import { media } from "./../../../../utils/media";
-import ListItem from "./../../../Components/ListItem";
-import Icon from "./../../../Components/Icon";
+import { media } from "./../../../utils/media";
+import ListItem from "./../../Components/ListItem";
+import Icon from "./../../Components/Icon";
 
 export const ListStyled = styled.div`
   position: relative;
@@ -35,5 +35,5 @@ const animItemOnShow = keyframes`
 
 export const ListItemStyled = styled(ListItem)`
   position: relative;
-  animation: ${animItemOnShow} .5s ease;
+  animation: ${animItemOnShow} 0.5s ease;
 `;

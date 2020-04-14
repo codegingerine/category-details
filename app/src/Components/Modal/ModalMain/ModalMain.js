@@ -19,7 +19,8 @@ class ModalMain extends Component {
 
   handleSubmitSingle = event => {
     event.preventDefault();
-    this.props.onCreate({
+    const { onCreate } = this.props;
+    onCreate({
       id: uuid.v4(),
       value: this.inputValue.current.value,
       itemType: "single"
@@ -29,7 +30,8 @@ class ModalMain extends Component {
 
   handleSubmitDetailed = event => {
     event.preventDefault();
-    this.props.onCreate({
+    const { onCreate } = this.props;
+    onCreate({
       id: uuid.v4(),
       value: this.inputDetValue.current.value,
       itemType: "detailed"
@@ -49,10 +51,7 @@ class ModalMain extends Component {
             required
             maxLength={30}
           />
-          <ModalButtonStyled
-            type="submit"
-            buttonText="Add item"
-          />
+          <ModalButtonStyled type="submit" buttonText="Add item" />
         </ModalFormStyled>
         <ModalFormStyled onSubmit={this.handleSubmitDetailed}>
           <ModalTitleStyled>Add a detailed item</ModalTitleStyled>
@@ -62,10 +61,7 @@ class ModalMain extends Component {
             required
             maxLength={30}
           />
-          <ModalButtonStyled
-            type="submit"
-            buttonText="Add item"
-          />
+          <ModalButtonStyled type="submit" buttonText="Add item" />
         </ModalFormStyled>
         <ModalIconStyled isCloseIcon callback={onClose} />
       </ModalStyled>
@@ -74,7 +70,7 @@ class ModalMain extends Component {
 }
 
 ModalMain.propTypes = {
-  onClose: PropTypes.func,
+  onClose: PropTypes.func
 };
 
 export default ModalMain;

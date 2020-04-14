@@ -1,5 +1,6 @@
-import React from "react";
-import List from "./List";
+import React, { Component } from "react";
+import CategoryList from "./../../Components/List";
+import { initialStateList } from "./initialStateList";
 import {
   SectionWrapperStyled,
   SectionTiteStyled,
@@ -7,16 +8,24 @@ import {
   ListTiteStyled
 } from "./People.styled";
 
-const People = () => {
-  return (
-    <SectionWrapperStyled>
-      <SectionTiteStyled>Category listing</SectionTiteStyled>
-      <ListWrapperStyled>
-        <ListTiteStyled>People</ListTiteStyled>
-        <List />
-      </ListWrapperStyled>
-    </SectionWrapperStyled>
-  );
-};
+class People extends Component {
+  state = {
+    listItems: [...initialStateList]
+  };
+
+  render() {
+    const { listItems } = this.state;
+
+    return (
+      <SectionWrapperStyled>
+        <SectionTiteStyled>Category listing</SectionTiteStyled>
+        <ListWrapperStyled>
+          <ListTiteStyled>People</ListTiteStyled>
+          <CategoryList mappedList={listItems} />;
+        </ListWrapperStyled>
+      </SectionWrapperStyled>
+    );
+  }
+}
 
 export default People;
