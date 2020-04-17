@@ -1,5 +1,5 @@
 export const initialStateList = [
-  { id: "default-item-1", value: "Age 40+" },
+  { id: "default-item-1", value: "Age 40+", description: "People in their prime" },
   {
     id: "default-item-2",
     value: "Ethnicity",

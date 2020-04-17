@@ -199,3 +199,10 @@ export const InputWrapperDetStyled = styled.div`
     }
   }
 `;
+
+export const ListItemDescriptStyled = styled.p`
+  width: 100%;
+  font-size: 15px;
+  color: #4b597b;
+  padding: 0 0 25px 40px;
+`;

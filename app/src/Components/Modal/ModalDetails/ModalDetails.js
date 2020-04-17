@@ -19,8 +19,7 @@ class ModalDetails extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onCreate({
-      id: uuid.v4(),
-      value: this.inputDetValue.current.value
+      details: { detId: uuid.v4(), detValue: this.inputDetValue.current.value }
     });
     this.inputDetValue.current.value = "";
   };
@@ -37,9 +36,7 @@ class ModalDetails extends Component {
             required
             maxLength={30}
           />
-          <ModalButtonStyled
-            buttonText="Add detail"
-          />
+          <ModalButtonStyled buttonText="Add detail" />
         </ModalFormStyled>
         <ModalIconStyled isCloseIcon callback={onClose} />
       </ModalStyled>
@@ -48,7 +45,7 @@ class ModalDetails extends Component {
 }
 
 ModalDetails.propTypes = {
-  onClose: PropTypes.func,
+  onClose: PropTypes.func
 };
 
 export default ModalDetails;

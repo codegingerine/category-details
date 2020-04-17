@@ -9,11 +9,23 @@ import {
   ListIconStyled,
   ListItemDetListStyled,
   ListItemDetStyled,
-  ListIconDetStyled
+  ListIconDetStyled,
+  ListItemDescriptStyled,
 } from "./ListItem.styled";
 
 const ListItem = React.forwardRef(
-  ({ className, value, onDelete, readOnly, itemType = "single", children }, ref) => {
+  (
+    {
+      className,
+      value,
+      onDelete,
+      readOnly,
+      itemType = "single",
+      children,
+      description
+    },
+    ref
+  ) => {
     return (
       <React.Fragment>
         {itemType === "single" && (
@@ -29,6 +41,9 @@ const ListItem = React.forwardRef(
                 readOnly={readOnly}
               />
               {onDelete && <ListIconStyled isRemoveIcon callback={onDelete} />}
+              {description && (
+                <ListItemDescriptStyled>{description}</ListItemDescriptStyled>
+              )}
             </InputWrapperStyled>
           </ListItemStyled>
         )}
@@ -63,8 +78,8 @@ ListItem.propTypes = {
   value: PropTypes.string,
   onDelete: PropTypes.func,
   readOnly: PropTypes.bool,
-  itemType: PropTypes.oneOf(['single', 'detailed']),
-  children: PropTypes.any,
+  itemType: PropTypes.oneOf(["single", "detailed"]),
+  children: PropTypes.any
 };
 
 export default ListItem;

@@ -32,9 +32,15 @@ class List extends Component {
   };
 
   // TODO: fix for nested details array
-  handleAddItemDetail = detItem => {
+  handleAddItemDetail = (indexSelected) => {
     this.setState(prevState => ({
-      mappedList: [...prevState.mappedList, detItem]
+      mappedList: prevState.mappedList.map( (item, index) => {
+        if ( index === indexSelected ) {
+          // item.details = [...item.details, newListItemDetail];
+          // console.log(newListItemDetail)
+        }
+        return item;
+      })
     }));
     this.handleCloseDetailsModal();
   };
@@ -47,12 +53,14 @@ class List extends Component {
     }));
   };
 
-  // TODO: fix for nested details array
-  handleRemoveDetailItem = indexDetToRemove => {
+  handleRemoveDetailItem = (indexSelected, indexDetToRemove) => {
     this.setState(prevState => ({
-      mappedList: prevState.mappedList.filter(
-        (_, index) => index !== indexDetToRemove
-      )
+      mappedList: prevState.mappedList.map( (item, index) => {
+        if ( index === indexSelected ) {
+          item.details = item.details.filter((_, i) => i !== indexDetToRemove);
+        }
+        return item;
+      })
     }));
   };
 
@@ -68,32 +76,38 @@ class List extends Component {
     const { mappedList, show, showDetails } = this.state;
     return (
       <ListStyled>
-        {mappedList.map(({ id, value, itemType, details }, index) => (
-          <ListItemStyled
-            key={id}
-            value={value}
-            onDelete={() => this.handleRemoveItem(index)}
-            readOnly
-            itemType={itemType}
-          >
-            {details &&
-              details.map(({ detId, detValue }, i) => (
-                <ListItemDetails
-                  key={`det-${detId}`}
-                  detValue={detValue}
-                  onDelete={() => this.handleRemoveDetailItem(i)}
-                  readOnly
-                />
-              ))}
-            <ListIconStyled isAddIcon callback={this.handleShowDetailsModal} />
-            {showDetails && (
-              <ModalDetails
-                onCreate={this.handleAddItemDetail}
-                onClose={this.handleCloseDetailsModal}
+        {mappedList.map(
+          ({ id, value, itemType, details, description }, index) => (
+            <ListItemStyled
+              key={id}
+              value={value}
+              onDelete={() => this.handleRemoveItem(index)}
+              readOnly
+              itemType={itemType}
+              description={description}
+            >
+              {details &&
+                details.map(({detId, detValue}, i) => (
+                  <ListItemDetails
+                    key={`det-${detId}`}
+                    detValue={detValue}
+                    onDelete={() => this.handleRemoveDetailItem(index, i)}
+                    readOnly
+                  />
+                ))}
+              <ListIconStyled
+                isAddIcon
+                callback={this.handleShowDetailsModal}
               />
-            )}
-          </ListItemStyled>
-        ))}
+              {showDetails && (
+                <ModalDetails
+                  onCreate={() => this.handleAddItemDetail(index)}
+                  onClose={this.handleCloseDetailsModal}
+                />
+              )}
+            </ListItemStyled>
+          )
+        )}
         <ListIconMainStyled isAddMainIcon callback={this.handleShowModal} />
         {show && (
           <Modal
