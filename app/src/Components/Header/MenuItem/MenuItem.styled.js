@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const MenuItemStyled = styled.li`
   display: flex;
@@ -17,7 +17,7 @@ export const MenuItemStyled = styled.li`
   }
 `;
 
-export const LinkRouterStyled = styled(Link)`
+export const NavLinkRouterStyled = styled(NavLink)`
   display: flex;
   width: 100%;
   height: 100%;
@@ -25,8 +25,12 @@ export const LinkRouterStyled = styled(Link)`
   justify-content: center;
   transition: background .5s ease;
 
-  &:hover {
+  &.active {
     background: #ca75f1;
+  }
+
+  &:hover {
+    background: #7176f7;
   }
 `;
 

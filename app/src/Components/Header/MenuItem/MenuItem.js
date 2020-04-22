@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { MenuItemStyled, LinkRouterStyled, LabelStyled } from "./MenuItem.styled";
+import { MenuItemStyled, NavLinkRouterStyled, LabelStyled } from "./MenuItem.styled";
 
-const MenuItem = ({ to, label }) => {
+const MenuItem = ({ exact,to, label }) => {
   return (
     <MenuItemStyled>
-      <LinkRouterStyled to={to}>
+      <NavLinkRouterStyled exact={exact} to={to}>
         <LabelStyled>{label}</LabelStyled>
-      </LinkRouterStyled>
+      </NavLinkRouterStyled>
     </MenuItemStyled>
   );
 };
@@ -15,6 +15,7 @@ const MenuItem = ({ to, label }) => {
 MenuItem.propTypes = {
   to: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  exact: PropTypes.bool,
 };
 
 export default MenuItem;

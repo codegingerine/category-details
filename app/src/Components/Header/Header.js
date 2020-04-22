@@ -2,6 +2,7 @@ import React from "react";
 import MenuItem from "./MenuItem";
 import {
   HeaderStyled,
+  NavStyled,
   MenuStyled,
   LogoWrapepr,
   LogoInner,
@@ -10,14 +11,16 @@ import {
 const Header = () => {
   return (
     <HeaderStyled>
-      <LogoWrapepr>
-        <LogoInner>easy notes</LogoInner>
-      </LogoWrapepr>
-      <MenuStyled>
-        <MenuItem to="/" label="M" />
-        <MenuItem to="/notes" label="N" />
-        <MenuItem to="/articles" label="A" />
-      </MenuStyled>
+      <NavStyled>
+        <LogoWrapepr>
+          <LogoInner>easy notes</LogoInner>
+        </LogoWrapepr>
+        <MenuStyled>
+          <MenuItem exact to="/" label="M" />
+          <MenuItem to="/notes" label="N" />
+          <MenuItem to="/articles" label="A" />
+        </MenuStyled>
+      </NavStyled>
     </HeaderStyled>
   );
 };
