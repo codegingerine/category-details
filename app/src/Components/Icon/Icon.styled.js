@@ -2,10 +2,9 @@ import styled, { css } from "styled-components";
 
 export const IconInnerStyled = styled.span`
   display: inline-block;
-  font-family: "Josefin Sans", sans-serif;
   color: #ffffff;
-  font-size: 30px;
-  line-height: 1px;
+  font-size: 20px;
+  line-height: 1;
   font-weight: 700;
   z-index: 2;
 `;
@@ -35,8 +34,8 @@ export const IconStyled = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   cursor: pointer;
 
@@ -92,8 +91,8 @@ export const IconStyled = styled.span`
       background: linear-gradient(180deg, #F978A2 0%, #F1435B 100%);
       box-shadow: 0 6px 12px 0 #FFC0C9;
       ${IconInnerStyled} {
-        font-size: 26px;
-        font-weight: 400;
+        font-size: 20px;
+        font-weight: 500;
       }
     `}
   `}

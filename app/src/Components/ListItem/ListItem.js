@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ItemTitle from "./ItemTitle";
+import ItemLink from "./ItemLink";
+import ItemIcon from "./ItemIcon";
 import {
   ListItemStyled,
-  ListJointMainStyled,
-  ListJointTextStyled,
-  InputWrapperStyled,
-  InputStyled,
-  ListIconStyled,
-  ListItemDetListStyled,
+  ItemJoinStyled,
+  ItemWrapperStyled,
+  ItemContentStyled,
+  ItemDescriptionStyled,
   ListItemDetStyled,
-  ListIconDetStyled,
-  ListItemDescriptStyled,
+  ItemContentDetStyled,
+  ItemDetailsListStyled,
 } from "./ListItem.styled";
 
 const ListItem = React.forwardRef(
@@ -19,67 +20,73 @@ const ListItem = React.forwardRef(
       className,
       value,
       onDelete,
-      readOnly,
-      itemType = "single",
+      itemType,
       children,
-      description
+      description,
+      linkLabel,
+      link,
     },
     ref
   ) => {
     return (
-      <React.Fragment>
+      <>
         {itemType === "single" && (
           <ListItemStyled itemType={itemType} className={className}>
-            <ListJointMainStyled>
-              <ListJointTextStyled>And</ListJointTextStyled>
-            </ListJointMainStyled>
-            <InputWrapperStyled>
-              <InputStyled
-                type="text"
-                value={value}
-                ref={ref}
-                readOnly={readOnly}
-              />
-              {onDelete && <ListIconStyled isRemoveIcon callback={onDelete} />}
-              {description && (
-                <ListItemDescriptStyled>{description}</ListItemDescriptStyled>
-              )}
-            </InputWrapperStyled>
+            <ItemJoinStyled main text="And" />
+            <ItemWrapperStyled>
+              <ItemContentStyled>
+                <ItemTitle ref={ref} value={value} />
+                {description && (
+                  <ItemDescriptionStyled ref={ref}>
+                    {description}
+                  </ItemDescriptionStyled>
+                )}
+                {link && (
+                  <ItemLink link={link} linkLabel={linkLabel} ref={ref} />
+                )}
+              </ItemContentStyled>
+              {onDelete && <ItemIcon main onDelete={onDelete} />}
+            </ItemWrapperStyled>
           </ListItemStyled>
         )}
         {itemType === "detailed" && (
           <ListItemDetStyled itemType={itemType} className={className}>
-            <ListJointMainStyled>
-              <ListJointTextStyled>And</ListJointTextStyled>
-            </ListJointMainStyled>
-            <InputWrapperStyled>
-              <InputStyled
-                type="text"
-                value={value}
-                ref={ref}
-                readOnly={readOnly}
-              />
+            <ItemJoinStyled main text="And" />
+            <ItemWrapperStyled>
+              <ItemContentDetStyled>
+                <ItemTitle ref={ref} value={value} />
+                {description && (
+                  <ItemDescriptionStyled ref={ref}>
+                    {description}
+                  </ItemDescriptionStyled>
+                )}
+              </ItemContentDetStyled>
               {children && (
-                <ListItemDetListStyled>{children}</ListItemDetListStyled>
+                <ItemDetailsListStyled>{children}</ItemDetailsListStyled>
               )}
-              {onDelete && (
-                <ListIconDetStyled isRemoveIcon callback={onDelete} />
-              )}
-            </InputWrapperStyled>
+              {onDelete && <ItemIcon main onDelete={onDelete} />}
+            
+            </ItemWrapperStyled>
           </ListItemDetStyled>
         )}
-      </React.Fragment>
+      </>
     );
   }
 );
 
 ListItem.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.string,
-  onDelete: PropTypes.func,
-  readOnly: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
   itemType: PropTypes.oneOf(["single", "detailed"]),
-  children: PropTypes.any
+  children: PropTypes.any,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string,
+  linkLabel: PropTypes.string,
+};
+
+ListItem.defaultProps = {
+  itemType: "single",
 };
 
 export default ListItem;

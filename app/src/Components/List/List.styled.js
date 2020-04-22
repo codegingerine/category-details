@@ -3,7 +3,7 @@ import { media } from "./../../../utils/media";
 import ListItem from "./../../Components/ListItem";
 import Icon from "./../../Components/Icon";
 
-export const ListStyled = styled.div`
+export const ListStyled = styled.ul`
   position: relative;
   width: 100%;
 `;
@@ -11,14 +11,14 @@ export const ListStyled = styled.div`
 export const ListIconMainStyled = styled(Icon)`
   margin: 30px 12px 12px 12px;
   ${media.md`
-    margin: 70px 12px 12px 117px;
+    margin: 70px 12px 12px 80px;
   `}
 `;
 
 export const ListIconStyled = styled(Icon)`
   margin: 14px 0 0;
   ${media.sm`
-    margin-left: 30px;
+    margin-left: 36px;
   `}
 `;
 

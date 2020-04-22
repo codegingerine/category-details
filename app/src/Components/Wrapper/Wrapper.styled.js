@@ -7,6 +7,7 @@ import Line3 from '../../assets/line-3.svg';
 
 export const WrapperStyled = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 export const Path1Svg = styled(Path1)`
