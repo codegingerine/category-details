@@ -1,12 +1,23 @@
 import React from "react";
-import { HeaderStyled, LogoWrapperStyled, NameWrapperStyled, NameStyled } from './Header.styled';
+import MenuItem from "./MenuItem";
+import {
+  HeaderStyled,
+  MenuStyled,
+  LogoWrapepr,
+  LogoInner,
+} from "./Header.styled";
 
-const Header = ({ className,logoItem, name = 'logo' }) => {
+const Header = () => {
   return (
     <HeaderStyled>
-      <LogoWrapperStyled className={className} LogoItem={logoItem}>
-        {logoItem ? logoItem : <NameWrapperStyled><NameStyled>{name}</NameStyled></NameWrapperStyled>}
-      </LogoWrapperStyled>
+      <LogoWrapepr>
+        <LogoInner>easy notes</LogoInner>
+      </LogoWrapepr>
+      <MenuStyled>
+        <MenuItem to="/" label="M" />
+        <MenuItem to="/notes" label="N" />
+        <MenuItem to="/articles" label="A" />
+      </MenuStyled>
     </HeaderStyled>
   );
 };

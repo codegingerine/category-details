@@ -14,7 +14,7 @@ class App extends Component {
       <Wrapper>
         <BrowserRouter>
           <>
-            <Header name="M" />
+            <Header />
             <Switch>
               <Route exact path="/" component={Music} />
               <Route path="/articles" component={Articles} />
