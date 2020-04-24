@@ -14,7 +14,7 @@ const Header = () => {
       <NavStyled>
         <LogoWrapepr>
           <LogoInner>easy notes</LogoInner>
-        </LogoWrapepr>
+        </LogoWrapepr> 
         <MenuStyled>
           <MenuItem exact to="/" label="M" />
           <MenuItem to="/notes" label="N" />

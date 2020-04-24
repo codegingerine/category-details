@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Modal from "./../Modal/ModalMain";
-import ModalDetails from "./../Modal/ModalDetails";
+import Modal from "./../Modal";
 import ItemDetail from "./../ListItem/ItemDetail";
 import {
   ListStyled,
@@ -12,12 +11,12 @@ import {
 class List extends Component {
   state = {
     mappedList: this.props.mappedList || [],
-    show: false,
+    showModal: false,
     showDetails: false,
   };
 
   handleShowModal = () => {
-    this.setState({ show: true });
+    this.setState({ showModal: true });
   };
 
   handleShowDetailsModal = () => {
@@ -36,8 +35,8 @@ class List extends Component {
     this.setState((prevState) => ({
       mappedList: prevState.mappedList.map((item, index) => {
         if (index === indexSelected) {
-          // item.details = [...item.details, newListItemDetail];
-          // console.log(newListItemDetail)
+          item.details = [...item.details, item];
+          console.log(item);
         }
         return item;
       }),
@@ -65,7 +64,7 @@ class List extends Component {
   };
 
   handleCloseModal = () => {
-    this.setState({ show: false });
+    this.setState({ showModal: false });
   };
 
   handleCloseDetailsModal = () => {
@@ -73,54 +72,57 @@ class List extends Component {
   };
 
   render() {
-    const { mappedList, show, showDetails } = this.state;
+    const { mappedList, showModal, showDetails } = this.state;
+
     return (
-      <ListStyled>
-        {mappedList.map(
-          (
-            { id, value, itemType, details, description, link, linkLabel },
-            index
-          ) => (
-            <ListItemStyled
-              key={id}
-              value={value}
-              onDelete={() => this.handleRemoveItem(index)}
-              itemType={itemType}
-              description={description}
-              link={link}
-              linkLabel={linkLabel}
-            >
-              {details &&
-                details.map(({ detId, detValue, linkLabel, link }, i) => (
-                  <ItemDetail
-                    key={`det-${detId}`}
-                    detValue={detValue}
-                    onDelete={() => this.handleRemoveDetailItem(index, i)}
-                    link={link}
-                    linkLabel={linkLabel}
-                  />
-                ))}
-              <ListIconStyled
-                isAddIcon
-                callback={this.handleShowDetailsModal}
-              />
-              {showDetails && (
-                <ModalDetails
+      <>
+        <ListStyled>
+          {mappedList.map(
+            (
+              { id, value, itemType, details, description, link, linkLabel },
+              index
+            ) => (
+              <ListItemStyled
+                key={id}
+                value={value}
+                onDelete={() => this.handleRemoveItem(index)}
+                itemType={itemType}
+                description={description}
+                link={link}
+                linkLabel={linkLabel}
+              >
+                {details &&
+                  details.map(({ detId, detValue, linkLabel, link }, i) => (
+                    <ItemDetail
+                      key={`det-${detId}`}
+                      detValue={detValue}
+                      onDelete={() => this.handleRemoveDetailItem(index, i)}
+                      link={link}
+                      linkLabel={linkLabel}
+                    />
+                  ))}
+                <ListIconStyled
+                  isAddIcon
+                  callback={this.handleShowDetailsModal}
+                />
+                <Modal
+                  secondary
+                  isOpen={showDetails}
                   onCreate={() => this.handleAddItemDetail(index)}
                   onClose={this.handleCloseDetailsModal}
                 />
-              )}
-            </ListItemStyled>
-          )
-        )}
+              </ListItemStyled>
+            )
+          )}
+        </ListStyled>
         <ListIconMainStyled isAddMainIcon callback={this.handleShowModal} />
-        {show && (
-          <Modal
-            onCreate={this.handleAddItem}
-            onClose={this.handleCloseModal}
-          />
-        )}
-      </ListStyled>
+        <Modal
+          main
+          isOpen={showModal}
+          onCreate={this.handleAddItem}
+          onClose={this.handleCloseModal}
+        />
+      </>
     );
   }
 }

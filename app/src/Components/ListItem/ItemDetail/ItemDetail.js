@@ -21,7 +21,7 @@ const ItemDetail = React.forwardRef(
 );
 
 ItemDetail.propTypes = {
-  detValue: PropTypes.string.isRequired,
+  detValue: PropTypes.string,
   onDelete: PropTypes.func.isRequired,
   link: PropTypes.string,
   linkLabel: PropTypes.string,

@@ -16,8 +16,8 @@ const ItemLink = React.forwardRef(({ link, linkLabel }, ref) => {
 });
 
 ItemLink.propTypes = {
-  link: PropTypes.string.isRequired,
-  linkLabel: PropTypes.string.isRequired
+  link: PropTypes.string,
+  linkLabel: PropTypes.string
 };
 
 ItemLink.defaultProps = {

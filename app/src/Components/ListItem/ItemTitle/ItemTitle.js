@@ -13,7 +13,7 @@ const ItemTitle = React.forwardRef(({ value }, ref) => {
 });
 
 ItemTitle.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 export default ItemTitle;
