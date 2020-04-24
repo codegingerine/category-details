@@ -76,11 +76,11 @@ const ListItem = React.forwardRef(
 
 ListItem.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onDelete: PropTypes.func.isRequired,
   itemType: PropTypes.oneOf(["single", "detailed"]),
   children: PropTypes.any,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   link: PropTypes.string,
   linkLabel: PropTypes.string,
 };
