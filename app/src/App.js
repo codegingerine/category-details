@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Wrapper from "./Components/Wrapper";
 import Header from "./Components/Header";
 import Music from "./View/Music";
@@ -11,7 +11,7 @@ import "./styles/styles.scss";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
+      <HashRouter>
         <Wrapper>
           <Header />
           <Switch>
@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/notes" component={Notes} />
           </Switch>
         </Wrapper>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
