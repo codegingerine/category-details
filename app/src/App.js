@@ -11,18 +11,16 @@ import "./styles/styles.scss";
 class App extends Component {
   render() {
     return (
-      <Wrapper>
-        <BrowserRouter>
-          <>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Music} />
-              <Route path="/articles" component={Articles} />
-              <Route path="/notes" component={Notes} />
-            </Switch>
-          </>
-        </BrowserRouter>
-      </Wrapper>
+      <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
+        <Wrapper>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Music} />
+            <Route path="/articles" component={Articles} />
+            <Route path="/notes" component={Notes} />
+          </Switch>
+        </Wrapper>
+      </BrowserRouter>
     );
   }
 }
